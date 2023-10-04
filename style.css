@@ -1,8 +1,14 @@
-#gameTaS {
+#score {
     color: #F1F2EB;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     font-size: 2em;
+}
+#timer {
+        color: #F1F2EB;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center;
+        font-size: 2em;
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
