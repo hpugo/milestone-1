@@ -1,14 +1,8 @@
-
-
-
-window.onload = function() {
-    setGame();
-}
-
-function setGame() {
-    for (let i = 0; i < 9; i++) {
-        let tile = document.createElement("div");
-        tile.id = i.toString(); 
-        document.getElementById("board").appendChild(tile);
+function changeBackgroundImage() {
+    var targetDiv = document.querySelector('#board > div');
+    if (targetDiv) {
+        targetDiv.style.backgroundImage = 'url("assets/POP!.png")'; // Replace 'new-background.jpg' with the path to your new image
+    } else {
+        console.log('Target div not found');
     }
 }
