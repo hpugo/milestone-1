@@ -1,38 +1,43 @@
-function changeBackgroundImage() {
-    var targetDiv = document.querySelector('#board > div');
-    if (targetDiv) {
-        targetDiv.style.backgroundImage = 'url("assets/POP!.png")'; // Replace 'new-background.jpg' with the path to your new image
-    } else {
-        console.log('Target div not found');
-    }
-}
+let score = 0;
+        let timer = 0;
+        let timerInterval;
 
-var timer;
-var ele = document.getElementById('timer');
+        function setGame() {
+            let board = document.getElementById("board");
 
-(function(){
-    var sec = 0;
-    timer= setInterval(()=>{
-        ele.innerHTML='00:' +sec;
-        sec ++;
-    }, 1000)
-})
+            for (let i = 0; i < 9; i++) {
+                let tile = document.createElement("div");
+                tile.className = "tile";
+                tile.id = i.toString();
+                tile.addEventListener("click", function() {
+                    handleTileClick(i);
+                });
+                document.getElementById("board").appendChild(tile);
+            }
+        }
 
+        function handleTileClick(tileIndex) {
+            let clickedTile = document.getElementById(tileIndex.toString());
 
-function popBalloon() {
-    score++;
-    document.getElementById('score-value').innerText = score;
-    this.remove();
-}
+            score++;
+            document.getElementById("score").innerText = `Score: ${score}`;
 
-function updateTimer() {
-    if (timerValue > 0) {
-        timerValue--;
-        document.getElementById('timer-value').innerText = timerValue;
-        createBalloon(); // Create a new balloon every second
-        setTimeout(updateTimer, 1000);
-    } else {
-        alert('Game Over! Your score is ' + score);
-        resetGame();
-    }
-}
+            clickedTile.style.backgroundImage = "url('assets/POP!.png')";
+
+            if (score === 9) {
+                clearInterval(timerInterval);
+
+                alert(`Congratulations! You completed the game in ${timer} seconds.`);
+            }
+        }
+
+        function startGame() {
+            setGame();
+
+            timerInterval = setInterval(function() {
+                timer++;
+                document.getElementById("timer").innerText = `Time: ${timer}`;
+            }, 1000);
+        }
+
+startGame();

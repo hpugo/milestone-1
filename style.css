@@ -26,6 +26,8 @@ body {
     flex-wrap: wrap;
     background-image: url("assets/comicZoom.avif");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 3px solid white;
     border-radius: 25px;
 }
@@ -36,5 +38,6 @@ body {
     background-image: url("assets/singleBallonBlue.png");
     background-repeat: no-repeat; 
     background-position: center;  
-    background-size: 5em; 
+    background-size: 6em; 
+    /* background-color: #ecff82; */
 }
