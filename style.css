@@ -1,3 +1,11 @@
+h1 {
+    color: #F1F2EB;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 4em;
+
+}
+
 #score {
     color: #F1F2EB;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -35,9 +43,20 @@ body {
 #board div {
     width: 270px;
     height: 270px;
-    background-image: url("assets/singleBallonBlue.png");
+    background-image: url("assets/POP!.png");
     background-repeat: no-repeat; 
     background-position: center;  
     background-size: 6em; 
-    /* background-color: #ecff82; */
+}
+
+button {
+    background-color: yellow;
+    height: 2em;
+    width: 3em;
+    size: 5em;
+    font-weight: bolder;
+    font-size: 2em;
+    inline-size: 4em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
