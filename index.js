@@ -60,55 +60,64 @@ function handleTileClick(tileIndex) {
 }
 
 function startCountdown() {
-  document.getElementById("startButton").disabled = true;
-
-  let count = 3;
-  document.getElementById("timer").innerText = count;
-
-  timerSound.play();
-
-  let countdownInterval = setInterval(function () {
-    count--;
+    document.getElementById("startButton").disabled = true;
+  
+    // Reset the game
+    resetGame();
+  
+    let count = 3;
     document.getElementById("timer").innerText = count;
-
-    if (count === 0) {
-      clearInterval(countdownInterval);
-      document.getElementById("timer").innerText = "Go!";
-
-      setTimeout(function () {
-        document.getElementById("startButton").disabled = false;
-        startGame();
-      }, 1000);
-    }
-  }, 1000);
-}
+  
+    timerSound.play();
+  
+    let countdownInterval = setInterval(function () {
+      count--;
+      document.getElementById("timer").innerText = count;
+  
+      if (count === 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("timer").innerText = "Go!";
+  
+        setTimeout(function () {
+          document.getElementById("startButton").disabled = false;
+          startGame();
+        }, 1000);
+      }
+    }, 1000);
+  }
+ // ... (previous code)
 
 function startGame() {
-  setGame();
-  clearInterval(timerInterval);
-  score = 0; 
-  document.getElementById("score").innerText = `Score: ${score}`;
-  tileStates = {};
-  currentLevel = 1;
-
-  startTime = new Date().getTime();
-
-  timerInterval = setInterval(function () {
-    let currentTime = new Date().getTime();
-    let elapsedTime = (currentTime - startTime) / 1000; 
-    document.getElementById("timer").innerText = `Time: ${elapsedTime.toFixed(3)}`;
-  }, 50); 
-}
-
-function resetGame() {
-  clearInterval(timerInterval);
-  timerSound.pause();
-  timerSound.currentTime = 0;
-  document.getElementById("timer").innerText = "Time: 0";
-  document.getElementById("board").innerHTML = "";
-  setBalloons();
-}
-
+    // Reset the game
+    resetGame();
+  
+    setGame();
+    clearInterval(timerInterval);
+    score = 0; 
+    document.getElementById("score").innerText = `Score: ${score}`;
+    tileStates = {};
+    currentLevel = 1;
+  
+    startTime = new Date().getTime();
+  
+    timerInterval = setInterval(function () {
+      let currentTime = new Date().getTime();
+      let elapsedTime = (currentTime - startTime) / 1000; 
+      document.getElementById("timer").innerText = `Time: ${elapsedTime.toFixed(3)}`;
+    }, 50);
+  }
+  
+  function resetGame() {
+    clearInterval(timerInterval);
+    timerSound.pause();
+    timerSound.currentTime = 0;
+    document.getElementById("timer").innerText = "Time: 0";
+    // Clear the board before resetting
+    document.getElementById("board").innerHTML = "";
+  }
+  
+  // ... (remaining code)
+  
 let levelPatterns = {
   1: ["assets/singleBalloonBlue.png"],
 };
