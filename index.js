@@ -62,7 +62,6 @@ function handleTileClick(tileIndex) {
 function startCountdown() {
     document.getElementById("startButton").disabled = true;
   
-    // Reset the game
     resetGame();
   
     let count = 3;
@@ -85,10 +84,8 @@ function startCountdown() {
       }
     }, 1000);
   }
- // ... (previous code)
 
 function startGame() {
-    // Reset the game
     resetGame();
   
     setGame();
@@ -112,11 +109,9 @@ function startGame() {
     timerSound.pause();
     timerSound.currentTime = 0;
     document.getElementById("timer").innerText = "Time: 0";
-    // Clear the board before resetting
     document.getElementById("board").innerHTML = "";
   }
   
-  // ... (remaining code)
   
 let levelPatterns = {
   1: ["assets/singleBalloonBlue.png"],
